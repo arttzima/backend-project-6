@@ -1,31 +1,55 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-
-import fastify from 'fastify';
-import view from '@fastify/view';
+import fastifyView from '@fastify/view';
 import fastifyStatic from '@fastify/static';
 import pug from 'pug';
+import i18next from 'i18next';
+import addRoutes from './routes/index.js';
 
-const app = fastify();
-const port = 3000;
-const host = ('RENDER' in process.env) ? '0.0.0.0' : 'localhost';
+import en from './locales/en.js';
+import ru from './locales/ru.js';
 
-await app.register(view, { engine: { pug } });
+import helpers from './helpers/index.js';
 
 const __dirname = fileURLToPath(path.dirname(import.meta.url));
 
-await app.register(fastifyStatic, {
-  root: path.join(__dirname, '..', 'style'),
-});
-app.get('/', (req, res) => {
-  res.view('server/views/layouts/index');
-});
-app.listen({ host, port }, () => {
-  console.log(`App listening on port ${port}`);
-});
-
-export const options = {
-  exposeHeadRoutes: false,
+const setUpViews = (app) => {
+  app.register(
+    fastifyView,
+    {
+      engine: {
+        pug,
+      },
+      includeViewExtension: true,
+      defaultContext: helpers(),
+    },
+  );
 };
 
-export default async (app, _options) => app;
+const setUpStaticAssets = (app) => {
+  const pathPublic = path.join(__dirname, '..', 'style');
+  app.register(fastifyStatic, {
+    root: pathPublic,
+  });
+};
+
+const setupLocalization = async () => {
+  await i18next
+    .init({
+      lng: 'en',
+      fallbackLng: 'ru',
+      resources: {
+        en,
+        ru,
+      },
+    });
+};
+
+export default async (app, _options) => {
+  setUpViews(app);
+  setUpStaticAssets(app);
+  addRoutes(app);
+  await setupLocalization();
+
+  return app;
+};

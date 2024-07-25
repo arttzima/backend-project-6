@@ -17,13 +17,13 @@ html.h-100(lang="en")
     .cover-container.d-flex.w-100.h-100.p-3.mx-auto.flex-column
       header.mb-auto
         div
-          h3.float-md-start.mb-0 Cover
+          a.nav-link.float-md-start.mb-0(href="/")= t('appName')
           nav.nav.nav-masthead.justify-content-center.float-md-end
-            a.nav-link.active(aria-current="page", href="#") Вход
-            a.nav-link(href="#") Регистрация
-            a.nav-link(href="#") Пользователи
+            a.nav-link.active(aria-current="page", href="#")= t('layouts.application.users')
+            a.nav-link(href="#")= t('layouts.application.signIn')
+            a.nav-link(href="#")= t('layouts.application.signUp')
       main.px-3
-        h1 Cover your page.
+        h1
         p.lead Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
         p.lead
           a.btn.btn-lg.btn-secondary.fw-bold.border-white.bg-white(href="#") Learn more
