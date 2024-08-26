@@ -10,11 +10,23 @@
   "author": "Artem Taran",
   "license": "ISC",
   "dependencies": {
+    "@fastify/flash": "^5.2.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/passport": "^2.5.0",
+    "@fastify/secure-session": "^7.5.1",
     "@fastify/static": "^7.0.4",
     "@fastify/view": "^9.1.0",
+    "dotenv": "^16.4.5",
     "fastify-cli": "^6.2.1",
+    "fastify-objectionjs": "^1.0.0",
+    "fastify-reverse-routes": "^3.0.0",
     "i18next": "^23.12.2",
-    "pug": "^3.0.3"
+    "knex": "^3.1.0",
+    "objection": "^3.1.4",
+    "objection-unique": "^1.2.2",
+    "pug": "^3.0.3",
+    "qs": "^6.13.0",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "css-loader": "^7.1.2",

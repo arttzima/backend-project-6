@@ -1,6 +1,13 @@
 export default {
   translation: {
     appName: 'Менеджер задач',
+    form: {
+      firstName: 'Имя',
+      lastName: 'Фамилия',
+      email: 'Email',
+      password: 'Пароль',
+      save: 'Сохранить',
+    },
     flash: {
       session: {
         create: {

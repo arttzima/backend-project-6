@@ -1,6 +1,13 @@
 export default {
   translation: {
     appName: 'Task manager',
+    form: {
+      firstName: 'Name',
+      lastName: 'Last name',
+      email: 'Email',
+      password: 'Password',
+      save: 'Register',
+    },
     flash: {
       session: {
         create: {

@@ -19,17 +19,19 @@ html.h-100(lang="en")
         div
           a.nav-link.float-md-start.mb-0(href="/")= t('appName')
           nav.nav.nav-masthead.justify-content-center.float-md-end
-            a.nav-link.active(aria-current="page", href="#")= t('layouts.application.users')
+            a.nav-link.active(aria-current="page", href="/users/new")= t('layouts.application.users')
             a.nav-link(href="#")= t('layouts.application.signIn')
             a.nav-link(href="#")= t('layouts.application.signUp')
       main.px-3
         h1
         p.lead Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
         p.lead
-          a.btn.btn-lg.btn-secondary.fw-bold.border-white.bg-white(href="#") Learn more
+          a.btn.btn-lg.btn-secondary.text-primary.fw-bold.border-white.bg-white(href="#") Learn more
+        block content
       footer.mt-auto.text-white-50
         p Cover template for 
           a.text-white(href="https://getbootstrap.com/") Bootstrap
           | , by
           a.text-white(href="https://twitter.com/mdo") @mdo
           | .
+      

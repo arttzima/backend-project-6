@@ -1,0 +1,19 @@
+extends ../layouts/application
+
+block content
+  if flash 
+    p= flash
+  form(method='post' action='/users' class='text-dark')
+    .form-floating.mb-3
+      input.form-control(name= `data[firstName]` id='data_firstName' placeholder= t('form.firstName') value='' type='text')
+      label(for="data_firstName")= t('form.firstName')
+    .form-floating.mb-3
+      input#data_lastName.form-control(name= `data[lastName]` placeholder= t('form.lastName') type='text')
+      label(for="data_lastName")= t('form.lastName')
+    .form-floating.mb-3
+      input#data_email.form-control(name= `data[email]` placeholder= t('form.email') type='email')
+      label(for="data_email")= t('form.email')
+    .form-floating.mb-3
+      input#data_password.form-control(name= `data[password]` placeholder= t('form.password') type='password')
+      label(for="data_password")= t('form.password')
+    button.btn.btn-primary= t('form.save')
